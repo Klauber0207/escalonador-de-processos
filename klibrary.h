@@ -1,8 +1,10 @@
 /*klibrary.h*/
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-
+#define T 3
 /*Hello world*/
 void hl(){
 	
@@ -41,5 +43,12 @@ Processo atribui_Processo(int id, int duracao){
 	p.duracao = duracao;
 	
 	return p;
+}
+
+
+int valor_ramdom(){
+	srand( (unsigned)time(NULL) );
+	return rand() % 3;
+	
 }
 
