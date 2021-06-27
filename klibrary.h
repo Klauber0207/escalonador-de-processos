@@ -4,7 +4,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define T 3
+#define T 10		//Número de processos.
+#define TM 5		//Tempo maximo de um processo.
+
 /*Hello world*/
 void hl(){
 	
@@ -31,7 +33,7 @@ Processo cria_Processo(){
 
 /*Imprime as informações de um processo, como id e duração.*/
 void imprime_Processo(Processo p){
-	printf("Processo %d -> tamanho: %d", p.id, p.duracao);
+	printf("Processo %d -> tamanho: %d\n", p.id, p.duracao);
 	
 }
 
@@ -46,9 +48,38 @@ Processo atribui_Processo(int id, int duracao){
 }
 
 
+/*Gera um valor aleatório.*/
 int valor_ramdom(){
-	srand( (unsigned)time(NULL) );
-	return rand() % 3;
+//	srand( (unsigned)time(NULL) );
+//	srand(time(NULL));
+	return 1 + rand() % TM;
 	
 }
 
+
+/*Cria processos para todas as posições de um vetor*/
+void enche_vetor(Processo* p, int t){
+	int i = 0;	
+	
+	srand(time(NULL));
+	for(i; i<t; i++){
+		p[i].id = i+1;
+		p[i].duracao = valor_ramdom();
+	}
+}
+
+
+/*Imprime todos os processos de um vetor.*/
+void imprime_vetor(Processo* p, int t){
+	int i = 0;
+	for(i; i<t; i++){
+		imprime_Processo(p[i]);
+	}
+}
+
+
+/*Funcao que executa o escalonamento.	*/
+void escalonamento(){
+	
+	printf("escalonando...\n");
+}
