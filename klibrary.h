@@ -79,7 +79,27 @@ void imprime_vetor(Processo* p, int t){
 
 
 /*Funcao que executa o escalonamento.	*/
-void escalonamento(){
+void escalonamento(Processo* carregar, Processo* pronto){
 	
 	printf("escalonando...\n");
+	
+	int i = 0; 
+	Processo executar, aux;
+	
+	
+	for(i; i<T; i++){
+		executar = carregar[i];
+//		imprime_Processo(executar);
+		//delay()
+		pronto[i] = executar;
+	}
+//	printf("\n\n");
+//	imprime_vetor(pronto, T);
+}
+
+
+/*Apenas interrope o programa até o usuario apertar ENTER.	*/
+void continuar(){
+	printf("\n\nPressione ENTER para continuar...");
+	scanf("%c");
 }
