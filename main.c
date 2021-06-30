@@ -12,8 +12,9 @@ imprime_vetor(carregar, T);	//Imprime os processos criados no vetor carregar.
 
 continuar();				//Deseja continuar?
 
-escalonamento(carregar, pronto);	//Chama o escalonamento em si.
+ordena_vetor(carregar);
+//escalonamento(carregar, pronto);	//Chama o escalonamento em si.
  
-continuar();				//Deseja continuar?
+//continuar();				//Deseja continuar?
 
 }
