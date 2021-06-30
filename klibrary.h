@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-//#include <windows.h>
+#include <windows.h>
 
 #define T 10		//Número de processos.
 #define TM 5		//Tempo maximo de um processo.
@@ -91,8 +91,15 @@ void escalonamento(Processo* carregar, Processo* pronto){
 		pronto[i] = executar;									//Passa o processo que foi executado para a lista de prontos.
 		printf("\n\n");
 	}
-//	printf("\n\n");
-//	imprime_vetor(pronto, T);
+	ordena_vetor(pronto);										//Ordena os processos sendo os de maior tamanho primeiro.
+	
+	continuar();												//Deseja continuar?
+	
+//	while(1){
+		for(i = 0; i<T; i++){
+			executa_processo(pronto[i]);							//executa cada um do processos.
+		}
+//	}
 }
 
 
@@ -141,13 +148,18 @@ void vetor_zero(Processo* p){
 void executa_processo(Processo p){
 	
 	int i = 0;
+	
+	if(p.id < 10)
 	printf("Executando = [ %d ] - tamanho: %d	", p.id, p.duracao);
+	else
+	printf("Executando = [ %d] - tamanho: %d	", p.id, p.duracao);
 	
 	while(i < p.duracao){
 		printf("||");
 		Sleep(1*TEMP);
 		i++;
 	}
+	printf("\n");
 }
 
 
@@ -168,5 +180,5 @@ void ordena_vetor(Processo* p){
 			}
 		}
 	}	
-	imprime_vetor(p, T);
+//	imprime_vetor(p, T);
 }
